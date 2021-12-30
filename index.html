@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Documento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+  
+  <article class="article">
+     <p>No me juzgues, estoy aprendiendo</p>
+  </article>
+  
+    
+  <div class="warpper" id="warpper">
+    
+    <div class="image cols1">
+      <figure class="mask">
+        <img src="https://i.ibb.co/Z1BfYsR/004.jpg"" alt="">
+      </figure>
+    </div>
+    <div class="image cols2">
+      <figure class="mask">
+        <img src="https://i.ibb.co/X5kCNGK/002.jpg" alt="">
+      </figure>
+    </div>
+    <div class="image cols3">
+      <figure class="mask">
+        TIPO DE &#8212;
+      </figure>
+    </div>
+    <div class="image cols4">
+      <figure class="mask">
+        <img src="https://i.ibb.co/F6tfhLX/001.jpg" alt="">
+      </figure>
+    </div>
+    <div class="image cols5">
+      <figure class="mask">
+        No &#8212;
+      </figure>
+    </div>
+    <div class="image cols6">
+      <figure class="mask">
+        Juzgarme
+      </figure>
+    </div>
+    <div class="image cols7">
+      <figure class="mask">
+        <img src="https://i.ibb.co/RCvTbkW/002.jpg" alt="">
+      </figure>
+    </div>
+    <div class="image cols8">
+      <figure class="mask">
+        Estoy Aprendiendo
+      </figure>
+    </div>
+   
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    
+    let masks = document.querySelectorAll('.mask');
+    
+    
+    masks.forEach( mask => {
+    let image = mask.querySelector('img');
+
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: mask,
+            toggleActions: "restart none none reset"
+        }
+    });
+
+    tl.set(mask, {autoAlpha: 1});
+
+    tl.from(mask, 1.5, {
+        xPercent: -100,
+        ease: Power2.out
+    });
+    tl.from(image, 1.5, {
+        xPercent: 100,
+        scale: 1.3,
+        delay: -1.5,
+        ease: Power2.out
+    });
+})
+
+    const tl = gsap.timeline();
+        tl.from(".article p",{
+            duration: 1.8,
+            delay: 1,
+            y: 410,
+            skewY: 10,
+            stagger: {
+                amount: .1
+            },
+            
+            ease: "power4.out"
+        });
+
+
+  </script>
+    
+</body>
+</html>
